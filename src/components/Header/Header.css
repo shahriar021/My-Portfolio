@@ -6,6 +6,19 @@
   justify-content: space-between;
 }
 
+.resume{
+  background-color:#2978b5;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+
+}
+
+.text{
+  color: white;
+}
+
 @media (max-width: 600px) {
   .header {
     height: 6em;

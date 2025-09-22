@@ -11,11 +11,7 @@ const About = () => {
       <div className='about__header'>
         {picture && (
           <img
-            src={
-              picture.startsWith('http')
-                ? picture
-                : `${process.env.PUBLIC_URL}/images/${picture}`
-            }
+            src="https://avatars.githubusercontent.com/u/95222498?v=4"
             alt={name}
             className='about__picture'
           />
@@ -28,7 +24,7 @@ const About = () => {
         </h1>
       )}
 
-      {role && <h2 className='about__role'>A {role}.</h2>}
+      {role && <h2 className='about__role'> {role}.</h2>}
       <p className='about__desc'>{description && description}</p>
       </div>
       </div>
