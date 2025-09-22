@@ -24,7 +24,9 @@
     "eject": "react-scripts eject --openssl-legacy-provider",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "tw:init": "tailwindcss init -p"
+
   },
   "browserslist": {
     "production": [
@@ -39,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -47,6 +50,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.3.2"
+    "postcss": "^8.5.6",
+    "prettier": "^2.3.2",
+    "tailwindcss": "^4.1.13"
   }
 }

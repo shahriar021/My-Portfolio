@@ -7,15 +7,11 @@ const Header = () => {
 
   return (
     <header className='header center'>
-      <h3>
-        {homepage ? (
-          <a href={homepage} className='link'>
-            {title}
-          </a>
-        ) : (
-          title
-        )}
+      <div className='resume'>
+      <h3 className='text'>
+        Resume
       </h3>
+      </div>
       <Navbar />
     </header>
   )
