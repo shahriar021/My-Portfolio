@@ -8,9 +8,10 @@ const Header = () => {
   return (
     <header className='header center'>
       <div className='resume'>
-      <h3 className='text'>
+        <a href='/Shahriar_Chowdhury.pdf' download><span className='btn btn--outline'>
         Resume
-      </h3>
+      </span></a>
+      
       </div>
       <Navbar />
     </header>

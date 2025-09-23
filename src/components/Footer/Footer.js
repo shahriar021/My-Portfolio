@@ -2,12 +2,7 @@ import './Footer.css'
 
 const Footer = () => (
   <footer className='footer'>
-    <a
-      href='https://github.com/rjshkhr/cleanfolio'
-      className='link footer__link'
-    >
-     shahriar
-    </a>
+    <h4 className='link footer__link'>Let&apos;s build something real</h4>
   </footer>
 )
 

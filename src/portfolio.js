@@ -10,7 +10,7 @@ const about = {
   picture: 'https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png',
 
   description:
-    'Adipisicing sit fugit ullam unde aliquid sequi Facilis soluta facilis perspiciatis corporis nulla aspernatur. Autem eligendi rerum delectus modi quisquam? Illo ut quasi nemo ipsa cumque perspiciatis! Maiores minima consectetur.',
+    'I’m a Software Engineer with a B.Sc. in Computer Science and Engineering. I specialize in building mobile applications with React Native, focusing on delivering efficient and user-friendly solutions. I’ve worked on projects for government platforms, international organizations, and have collaborated directly with freelance clients to bring their ideas to life. I enjoy tackling challenging problems and continuously improving my skills to create impactful software.',
   resume: 'https://drive.google.com/file/d/1fV9tUObnmH18otpVu_ISl3T63TX44Su8/view?usp=sharing',
   social: {
     linkedin: 'https://linkedin.com',
