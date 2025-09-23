@@ -2,9 +2,7 @@
   "name": "cleanfolio",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "22.x"
-  },
+  
   "homepage": ".",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
