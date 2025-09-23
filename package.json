@@ -5,7 +5,7 @@
   "engines": {
     "node": "22.x"
   },
-  "homepage": "https://rjshkhr.github.io/cleanfolio",
+  "homepage": ".",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
