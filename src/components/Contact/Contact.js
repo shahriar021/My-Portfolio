@@ -6,7 +6,7 @@ import './Contact.css'
 
 const Contact = () => {
   if (!contact.email) return null
-  const { name, role, description, resume, social, picture } = about
+  const {  social } = about
 
   return (
     <section className='section contact center' id='contact'>
