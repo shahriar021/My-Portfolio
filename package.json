@@ -2,6 +2,9 @@
   "name": "cleanfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "homepage": "https://rjshkhr.github.io/cleanfolio",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
