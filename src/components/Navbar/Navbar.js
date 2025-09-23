@@ -43,6 +43,20 @@ const Navbar = () => {
           </li>
         ) : null}
 
+        
+
+        {contact.email ? (
+          <li className='nav__list-item'>
+            <a
+              href='#contact'
+              onClick={toggleNavList}
+              className='link link--nav'
+            >
+              Education
+            </a>
+          </li>
+        ) : null}
+
         {contact.email ? (
           <li className='nav__list-item'>
             <a
