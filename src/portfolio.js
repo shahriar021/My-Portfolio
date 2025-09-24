@@ -71,10 +71,14 @@ const skills = [
   'Enzyme',
 ]
 
+const educatioin={
+  signal:'true'
+}
+
 const contact = {
   // email is optional - if left empty Contact section won't show up
   email: 'shahriarc19@mail.com',
   call:'01604173222'
 }
 
-export { header, about, projects, skills, contact }
+export { header, about, projects, skills, contact,educatioin }
