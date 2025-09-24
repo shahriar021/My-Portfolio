@@ -52,6 +52,11 @@ const projects = [
 const skills = [
   // skills can be added or removed
   // if there are no skills, Skills section won't show up
+  'DSA',
+  'React Native',
+  'Android and Ios app development',
+  'App Deployment',
+  'Tailwind CSS',
   'HTML',
   'CSS',
   'JavaScript',
@@ -68,7 +73,8 @@ const skills = [
 
 const contact = {
   // email is optional - if left empty Contact section won't show up
-  email: 'johnsmith@mail.com',
+  email: 'shahriarc19@mail.com',
+  call:'01604173222'
 }
 
 export { header, about, projects, skills, contact }
