@@ -1,6 +1,6 @@
 import {  useState } from 'react'
 
-import { projects, skills, contact } from '../../portfolio'
+import { projects, skills, contact,educatioin } from '../../portfolio'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [showNavList, setShowNavList] = useState(false)
 
   const toggleNavList = () => setShowNavList(!showNavList)
+  
 
   return (
     <nav className='center nav'>
@@ -41,10 +42,10 @@ const Navbar = () => {
 
         
 
-        {contact.email ? (
+        {educatioin.signal? (
           <li className='nav__list-item'>
             <a
-              href='#contact'
+              href='#education'
               onClick={toggleNavList}
               className='link link--nav'
             >
