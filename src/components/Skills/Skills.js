@@ -31,7 +31,7 @@ const SkillCard = ({ name, color, delay }) => (
 )
 
 const Skills = () => {
-  const [mounted, setMounted] = useState(false)
+  const [ setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
   return (
