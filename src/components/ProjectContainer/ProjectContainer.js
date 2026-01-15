@@ -1,20 +1,18 @@
 import uniqid from 'uniqid'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import LaunchIcon from '@material-ui/icons/Launch'
 import './ProjectContainer.css'
 
 const ProjectContainer = ({ project }) => (
   <div className='project'>
-
-    {project.image && (<img
-    src={
-      project.image.startsWith("http")
-        ? project.image
-        : `${process.env.PUBLIC_URL}/images/${project.image}`
-    }
-    alt={`${project.name} screenshot`}
-    style={{ width: '100%', objectFit: 'cover' }}
-    />
+    {project.image && (
+      <img
+        src={
+          project.image.startsWith('http')
+            ? project.image
+            : `${process.env.PUBLIC_URL}/images/${project.image}`
+        }
+        alt={`${project.name} screenshot`}
+        style={{ width: '100%', objectFit: 'cover' }}
+      />
     )}
 
     <h3>{project.name}</h3>
@@ -29,26 +27,9 @@ const ProjectContainer = ({ project }) => (
         ))}
       </ul>
     )}
-
-    {project.sourceCode && (
-      <a
-        href={project.sourceCode}
-        aria-label='source code'
-        className='link link--icon'
-      >
-        <GitHubIcon />
-      </a>
-    )}
-
-    {project.livePreview && (
-      <a
-        href={project.livePreview}
-        aria-label='live preview'
-        className='link link--icon'
-      >
-        <LaunchIcon />
-      </a>
-    )}
+    <button type='button' className='view-details-btn'>
+      View Details
+    </button>
   </div>
 )
 

@@ -1,4 +1,4 @@
-import uniqid from 'uniqid'
+import { Link } from 'react-router-dom'
 import { projects } from '../../portfolio'
 import ProjectContainer from '../ProjectContainer/ProjectContainer'
 import './Projects.css'
@@ -12,7 +12,14 @@ const Projects = () => {
 
       <div className='projects__grid'>
         {projects.map((project) => (
-          <ProjectContainer key={uniqid()} project={project} />
+          // Inside your Projects.js .map function
+          <Link
+            to={`/project/${project.name.toLowerCase().replace(/\s+/g, '-')}`}
+            key={project.name}
+            className='project-link-wrapper'
+          >
+            <ProjectContainer project={project} />
+          </Link>
         ))}
       </div>
     </section>

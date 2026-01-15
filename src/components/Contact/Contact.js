@@ -9,7 +9,7 @@ const Contact = () => {
 
   return (
     <section
-      id="contact"
+      id='contact'
       style={{
         padding: '70px 25px',
         textAlign: 'center',
@@ -58,35 +58,31 @@ const Contact = () => {
           marginBottom: '55px',
         }}
       >
-        <a href={`mailto:${contact.email}`}>
-          <span
-            className="btn btn--outline"
-            style={{
-              padding: '12px 30px',
-              borderRadius: '10px',
-              fontWeight: '500',
-              fontSize: '1rem',
-              letterSpacing: '0.5px',
-            }}
-          >
-            Send me an Email
-          </span>
-        </a>
+        <span
+          className='btn btn--outline'
+          style={{
+            padding: '12px 30px',
+            borderRadius: '10px',
+            fontWeight: '500',
+            fontSize: '1rem',
+            letterSpacing: '0.5px',
+          }}
+        >
+          shahriarc19@gmail.com
+        </span>
 
-        <a href={`tel:${contact.call}`}>
-          <span
-            className="btn btn--outline"
-            style={{
-              padding: '12px 30px',
-              borderRadius: '10px',
-              fontWeight: '500',
-              fontSize: '1rem',
-              letterSpacing: '0.5px',
-            }}
-          >
-            Call me
-          </span>
-        </a>
+        <span
+          className='btn btn--outline'
+          style={{
+            padding: '12px 30px',
+            borderRadius: '10px',
+            fontWeight: '500',
+            fontSize: '1rem',
+            letterSpacing: '0.5px',
+          }}
+        >
+          01604173222
+        </span>
       </div>
 
       {/* Social links */}
@@ -111,42 +107,42 @@ const Contact = () => {
         {social?.github && (
           <a
             href={social.github}
-            aria-label="github"
+            aria-label='github'
             style={{
               color: '#333',
               fontSize: '2.3rem',
               transition: 'transform 0.25s ease, color 0.25s ease',
             }}
           >
-            <GitHubIcon fontSize="inherit" />
+            <GitHubIcon fontSize='inherit' />
           </a>
         )}
 
         {social?.linkedin && (
           <a
             href={social.linkedin}
-            aria-label="linkedin"
+            aria-label='linkedin'
             style={{
               color: '#0a66c2',
               fontSize: '2.3rem',
               transition: 'transform 0.25s ease, color 0.25s ease',
             }}
           >
-            <LinkedInIcon fontSize="inherit" />
+            <LinkedInIcon fontSize='inherit' />
           </a>
         )}
 
         {social?.instagram && (
           <a
             href={social.instagram}
-            aria-label="instagram"
+            aria-label='instagram'
             style={{
               color: '#e1306c',
               fontSize: '2.3rem',
               transition: 'transform 0.25s ease, color 0.25s ease',
             }}
           >
-            <InstagramIcon fontSize="inherit" />
+            <InstagramIcon fontSize='inherit' />
           </a>
         )}
       </div>

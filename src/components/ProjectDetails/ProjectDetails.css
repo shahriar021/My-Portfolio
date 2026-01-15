@@ -1,0 +1,106 @@
+.project-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem;
+  color: var(--clr-fg);
+  gap: 4 px;
+}
+
+.details__content {
+  margin-top: 2rem;
+  max-width: 800px;
+  background: var(--clr-bg-alt);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.project-details .link {
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+.project-images {
+  display: flex; /* row layout */
+  flex-wrap: nowrap; /* force one row */
+  justify-content: space-between; /* spread images evenly */
+  align-items: center; /* vertical alignment */
+  gap: 15px; /* spacing between images */
+  margin-bottom: 2rem;
+}
+
+.project-images img {
+  width: 300px; /* fixed width */
+  height: 400px; /* fixed height */
+  object-fit: contain; /* fill container nicely */
+  border-radius: 10px;
+  flex-shrink: 0; /* prevent shrinking */
+  transition: transform 0.3s; /* subtle hover effect */
+}
+
+.project-images img:hover {
+  transform: scale(1.05); /* professional hover effect */
+}
+
+/* Features list */
+.details__content ul.features-list {
+  list-style-type: disc; /* bullets */
+  padding-left: 20px; /* indent bullets */
+  opacity: 0.9; /* slightly faded text */
+  margin-top: 1rem;
+}
+
+.details__content ul.features-list li {
+  margin-bottom: 0.5rem; /* spacing between items */
+  font-size: 1rem;
+}
+
+/* Tech stack pills (optional if using separate class) */
+.details__content ul.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.details__content ul.tech-stack li {
+  padding: 5px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Source Code / APK Links buttons */
+.project-links {
+  display: flex;
+  gap: 15px; /* spacing between buttons */
+  margin-top: 1.5rem;
+}
+
+.project-links a {
+  padding: 10px 20px;
+  background: var(--clr-primary);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.project-links a:hover {
+  background: #0070f3; /* slightly darker hover */
+  transform: scale(1.03); /* subtle zoom effect */
+}
+
+.gradient-text {
+  font-size: 2.5rem; /* adjust size as needed */
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00f260);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* makes gradient visible */
+  background-clip: text;
+  color: transparent;
+}

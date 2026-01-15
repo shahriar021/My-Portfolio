@@ -31,3 +31,23 @@
 .project .link--icon {
   margin-left: 0.5em;
 }
+
+.view-details-btn {
+  all: unset; /* removes browser styles */
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.view-details-btn:hover {
+  background-color: #1e40af;
+}
+
+.view-details-btn h4 {
+  color: #ffffff;
+  margin: 0;
+}

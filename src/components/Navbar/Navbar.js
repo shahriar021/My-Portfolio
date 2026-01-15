@@ -1,14 +1,12 @@
-import {  useState } from 'react'
+import { useState } from 'react'
 
-import { projects, skills, contact,educatioin } from '../../portfolio'
+import { projects, skills, contact, educatioin } from '../../portfolio'
 import './Navbar.css'
 
 const Navbar = () => {
-  
   const [showNavList, setShowNavList] = useState(false)
 
   const toggleNavList = () => setShowNavList(!showNavList)
-  
 
   return (
     <nav className='center nav'>
@@ -19,7 +17,7 @@ const Navbar = () => {
         {projects.length ? (
           <li className='nav__list-item'>
             <a
-              href='#projects'
+              href='/#projects'
               onClick={toggleNavList}
               className='link link--nav'
             >
@@ -31,7 +29,7 @@ const Navbar = () => {
         {skills.length ? (
           <li className='nav__list-item'>
             <a
-              href='#skills'
+              href='/#skills'
               onClick={toggleNavList}
               className='link link--nav'
             >
@@ -40,12 +38,10 @@ const Navbar = () => {
           </li>
         ) : null}
 
-        
-
-        {educatioin.signal? (
+        {educatioin.signal ? (
           <li className='nav__list-item'>
             <a
-              href='#education'
+              href='/#education'
               onClick={toggleNavList}
               className='link link--nav'
             >
@@ -57,7 +53,7 @@ const Navbar = () => {
         {contact.email ? (
           <li className='nav__list-item'>
             <a
-              href='#contact'
+              href='/#contact'
               onClick={toggleNavList}
               className='link link--nav'
             >
@@ -66,10 +62,6 @@ const Navbar = () => {
           </li>
         ) : null}
       </ul>
-
-      
-
-     
     </nav>
   )
 }
