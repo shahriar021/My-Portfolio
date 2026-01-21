@@ -47,7 +47,7 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
       'Customizable character options',
       'Share stories via social media',
     ],
-    sourceCode: 'https://github.com/yourusername/magictales-ai',
+    sourceCode: 'https://github.com/shahriar021/MagicTales-AI-2.0-app.git',
     apk: 'https://drive.google.com/file/d/1jsz9D7YnOpm2mK2MrV7K4WXrX_cyQ_Dr/view?usp=drive_link',
   },
   {
@@ -72,7 +72,7 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
       'Dynamic analytics and performance stats',
       'Seamless product purchasing experience',
     ],
-    sourceCode: 'https://github.com/yourusername/magictales-ai',
+    sourceCode: 'https://github.com/shahriar021/e-commerce-app.git',
     apk: 'https://drive.google.com/file/d/1pCs77bdwwPOm6VhO_6a_rdXoidDYNDqb/view?usp=drive_link',
   },
   {
@@ -110,7 +110,7 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
       'Vendor product management (add, edit, delete)',
       'Secure payments and withdrawal options',
     ],
-    sourceCode: 'https://github.com/yourusername/tikafood',
+    sourceCode: 'https://github.com/shahriar021/Tika-food-App.git',
     apk: 'https://drive.google.com/file/d/1m9iBHioWeXR9STlL3mx-YHmxlNnuhfe2/view?usp=drive_link',
   },
 ]
