@@ -25,7 +25,7 @@ const App = () => {
           display: 'flex',
           flexDirection: 'column',
           minHeight: '100vh',
-          background: 'var(--clr-bg)', // Forces the gradient here
+          background: 'var(--clr-bg)',
           backgroundAttachment: 'fixed',
         }}
       >

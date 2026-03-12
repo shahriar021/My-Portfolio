@@ -13,9 +13,7 @@ const Contact = () => {
       style={{
         padding: '70px 25px',
         textAlign: 'center',
-        background: 'linear-gradient(135deg, #1a1a1a, #24303c, #2c3e50)', // dark theme
-        borderRadius: '16px',
-        boxShadow: '0 6px 20px rgba(0,0,0,0.4)',
+        
         margin: '60px auto',
         maxWidth: '850px',
         color: '#eee',
