@@ -13,7 +13,7 @@ const about = {
   description:
     'I’m a Software Engineer with a B.Sc. in Computer Science and Engineering. I specialize in building mobile applications with React Native, focusing on delivering efficient and user-friendly solutions. I’ve worked on projects for government platforms, international organizations, and have collaborated directly with freelance clients to bring their ideas to life. I enjoy tackling challenging problems and continuously improving my skills to create impactful software.',
   resume:
-    'https://drive.google.com/file/d/1fV9tUObnmH18otpVu_ISl3T63TX44Su8/view?usp=sharing',
+    'https://drive.google.com/file/d/13oMM3ZBptzPMsul-OyTzoWNpX0tspqnZ/view?usp=sharing',
   social: {
     linkedin: 'https://www.linkedin.com/in/shahriar021',
     github: 'https://github.com/shahriar021',
@@ -112,6 +112,69 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
     ],
     sourceCode: 'https://github.com/shahriar021/Tika-food-App.git',
     apk: 'https://drive.google.com/file/d/1m9iBHioWeXR9STlL3mx-YHmxlNnuhfe2/view?usp=drive_link',
+  },
+  {
+    name: 'Qulinejb',
+    type: 'web',
+    description:
+      'AI-powered movie discovery site that recommends films based on your mood and genre preferences.',
+    longDescription: `
+    Qulinejb is an AI-powered movie discovery platform built for cinephiles who want smarter recommendations. 
+    Instead of endless browsing, users simply select their current mood and the AI engine — powered by 
+    OpenRouter — curates a personalized watchlist on the spot.
+
+    The platform pulls live movie data from TMDB, giving users access to rich metadata, posters, trailers, 
+    and ratings. Users can filter by genre, save films to a Watch Later list, and revisit their Recently 
+    Viewed history. Every session feels tailored, not algorithmic.
+    `,
+    stack: ['Next.js', 'TMDB API', 'OpenRouter API'],
+    livePreview: 'https://qulinejb.netlify.app/',
+    image: 'm1.png',
+    images: [
+      '/images/m1.png',
+      '/images/m2.png',
+      '/images/m3.png',
+      '/images/m4.png',
+    ],
+    features: [
+      'AI mood-based movie recommendations',
+      'Browse by genre',
+      'Watch Later list',
+      'Recently Viewed history',
+      'Live movie data from TMDB',
+    ],
+    sourceCode: '#',
+  },
+  {
+    name: 'Sentinel',
+    type: 'web',
+    description:
+      'Real-time developer resource management platform for tracking team capacity, workload, and burnout risk.',
+    longDescription: `
+    Sentinel is a real-time workforce management platform built for engineering teams. 
+    Admins can onboard software engineers with their full profile — skills, seniority, 
+    current capacity, and availability. Tech leads and team leads get their own login 
+    with the ability to assign engineers to projects and tasks directly from the dashboard.
+
+    The real power is in the live visibility. Using WebSockets, Sentinel updates in real 
+    time — managers can instantly see who is overloaded and at risk of burnout, and who 
+    has bandwidth to take on more work. No more guessing, no more Slack pings asking 
+    "who's free?" — the answer is always on screen.
+    `,
+    stack: ['Next.js', 'Node.js', 'Express', 'MySQL', 'WebSocket'],
+    livePreview: '#',
+    image: 's1.png',
+    images: ['/images/s1.png'],
+    features: [
+      'Admin panel to add and manage engineer profiles',
+      'Role-based login — Admin, Tech Lead, Team Lead',
+      'Assign engineers to projects and tasks',
+      'Real-time capacity and workload tracking via WebSockets',
+      'Burnout risk detection — see who is overloaded at a glance',
+      'Live dashboard showing who is free vs fully booked',
+    ],
+    sourceCode: '#',
+    imp:'Actively improving this — planning to add AI-based burnout prediction, Slack notifications, and sprint analytics. May run into rough edges while exploring.'
   },
 ]
 

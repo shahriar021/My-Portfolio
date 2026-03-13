@@ -152,10 +152,20 @@ const ProjectDetails = () => {
                 Source Code
               </a>
             )}
+            {project.livePreview && (
+              <a href={project.livePreview} target='_blank' rel='noreferrer'>
+                Live Preview
+              </a>
+            )}
             {project.apk && (
               <a href={project.apk} download>
                 Download APK
               </a>
+            )}
+            {project.imp && (
+              <p className='note-color'>
+                NOTE:{project.imp}
+              </p>
             )}
           </div>
         </div>

@@ -33,13 +33,13 @@ const stack = [
     area: 'State & Architecture',
     description: 'Managing complexity at scale',
     accent: '#a78bfa',
-    skills: ['Redux', 'DSA', 'Component Architecture'],
+    skills: ['Redux', 'DSA', 'Component Architecture','Solid','System Design'],
   },
   {
     area: 'Toolchain & Quality',
     description: 'From commit to production, reliably',
     accent: '#34d399',
-    skills: ['Git', 'Docker', 'CI/CD', 'Jest', 'Enzyme'],
+    skills: ['Git', 'Docker', 'CI/CD', 'Jest'],
   },
 ]
 

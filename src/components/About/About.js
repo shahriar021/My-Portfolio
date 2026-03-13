@@ -333,7 +333,7 @@ const About = () => {
       }}>
         {[
           { number: '2+',  label: 'Years experience' },
-          { number: '20+', label: 'Projects shipped' },
+          { number: '10+', label: 'Projects shipped' },
           { number: '500+', label: 'Problems solved' },
         ].map(stat => (
           <div key={stat.label}>

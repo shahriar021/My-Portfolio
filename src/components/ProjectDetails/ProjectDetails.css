@@ -14,6 +14,7 @@
   padding: 2rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
+  position: relative;
 }
 
 .project-details .link {
@@ -103,4 +104,17 @@
   -webkit-text-fill-color: transparent; /* makes gradient visible */
   background-clip: text;
   color: transparent;
+}
+
+.note-color{
+  color: #ff6a00;
+  position:absolute;
+  width: 200px;
+  right:0;
+  padding: 5px;
+  bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 10px;
 }
