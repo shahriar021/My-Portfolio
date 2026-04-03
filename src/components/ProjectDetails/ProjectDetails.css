@@ -92,7 +92,25 @@
 }
 
 .project-links a:hover {
-  background: #0070f3; /* slightly darker hover */
+  transform: scale(1.03); /* subtle zoom effect */
+}
+
+.publish-links{
+  display: flex;
+  gap: 15px; /* spacing between buttons */
+  margin-top: 1.5rem;
+}
+
+.publish-links a {
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.publish-links a:hover {
   transform: scale(1.03); /* subtle zoom effect */
 }
 

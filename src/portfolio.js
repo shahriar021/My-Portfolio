@@ -74,6 +74,8 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
     ],
     sourceCode: 'https://github.com/shahriar021/e-commerce-app.git',
     apk: 'https://drive.google.com/file/d/1pCs77bdwwPOm6VhO_6a_rdXoidDYNDqb/view?usp=drive_link',
+    playStore:
+      'https://play.google.com/store/apps/details?id=com.sparktech.sas',
   },
   {
     name: 'Tika Food',
@@ -174,7 +176,7 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
       'Live dashboard showing who is free vs fully booked',
     ],
     sourceCode: '#',
-    imp:'Actively improving this — planning to add AI-based burnout prediction, Slack notifications, and sprint analytics. May run into rough edges while exploring.'
+    imp: 'Actively improving this — planning to add AI-based burnout prediction, Slack notifications, and sprint analytics. May run into rough edges while exploring.',
   },
 ]
 

@@ -162,10 +162,19 @@ const ProjectDetails = () => {
                 Download APK
               </a>
             )}
-            {project.imp && (
-              <p className='note-color'>
-                NOTE:{project.imp}
-              </p>
+
+            {project.imp && <p className='note-color'>NOTE:{project.imp}</p>}
+          </div>
+          {project.playStore && <p style={{fontFamily:'monospace',fontWeight:"bold",fontSize:20,marginTop:20}}>Availabe on</p>}
+          <div className='publish-links'>
+            {project.playStore && (
+              <a href={project.playStore}>
+                <img
+                  src='/images/playstore.avif'
+                  alt='Play Store'
+                  style={{ width: 100, height: 'auto', cursor: 'pointer' }}
+                />
+              </a>
             )}
           </div>
         </div>
