@@ -178,6 +178,46 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
     sourceCode: '#',
     imp: 'Actively improving this — planning to add AI-based burnout prediction, Slack notifications, and sprint analytics. May run into rough edges while exploring.',
   },
+  {
+    name: 'AI Lawyer BD',
+    type: 'web',
+    description:
+      'AI-powered legal assistant for Bangladesh — analyze legal documents and get instant advice in Bangla & English.',
+    longDescription: `
+  AI Lawyer BD is an AI-powered legal assistant built specifically for people in Bangladesh 
+  who face legal problems daily but can't afford or access a lawyer. Users can upload any 
+  legal document (PDF) — rent agreements, job contracts, court notices — or simply describe 
+  their situation in Bangla or English.
+
+  Powered by LangChain and Groq's LLaMA 3.3 70B model, the app instantly analyzes the 
+  document and returns a clear summary, the user's legal rights, dangerous clauses to watch 
+  out for, and step-by-step advice — all explained in simple Bangla.
+
+  No signup needed. Completely free. Built to make legal help accessible to everyone.
+  `,
+    stack: [
+      'Next.js',
+      'LangChain',
+      'Groq',
+      'LLaMA 3.3 70B',
+      'TypeScript',
+      'Tailwind CSS',
+    ],
+    livePreview: 'https://ailawyerapp.netlify.app/',
+    image: 'aiLawyer.png',
+    images: ['/images/aiLawyer.png'],
+    features: [
+      'Upload legal documents (PDF) for instant AI analysis',
+      'Describe your situation in Bangla or English',
+      'Get a clear summary of any legal document',
+      'Understand your legal rights in plain language',
+      'Red flags and dangerous clauses highlighted automatically',
+      'Step-by-step advice on what to do next',
+      'Full explanation in simple Bangla',
+      'No signup required — completely free to use',
+    ],
+    sourceCode: '#',
+  },
 ]
 
 const skills = [
