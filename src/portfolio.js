@@ -6,12 +6,12 @@ const header = {
 const about = {
   // all the properties are optional - can be left empty or deleted
   name: 'Shahriar Chowdhury',
-  role: 'Software Engineer',
+  role: 'Software Engineer · Mobile & Full-Stack Development',
   picture:
-    'https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png',
+    'https://avatars.githubusercontent.com/u/95222498?v=4',
 
   description:
-    'I’m a Software Engineer with a B.Sc. in Computer Science and Engineering. I specialize in building mobile applications with React Native, focusing on delivering efficient and user-friendly solutions. I’ve worked on projects for government platforms, international organizations, and have collaborated directly with freelance clients to bring their ideas to life. I enjoy tackling challenging problems and continuously improving my skills to create impactful software.',
+    'I’m a software engineer with a B.Sc. in Computer Science and Engineering and experience spanning freelance work, software quality assurance, and product teams. I build mobile and web applications with React Native, React, TypeScript, and Node.js, and enjoy taking features from a clear requirement through implementation, testing, and release.',
   resume:
     'https://drive.google.com/file/d/13oMM3ZBptzPMsul-OyTzoWNpX0tspqnZ/view?usp=sharing',
   social: {
@@ -32,7 +32,6 @@ The app also features integrated payment methods for premium plans, allowing use
 Whether you want to generate exciting adventures, heartfelt tales, or creative short stories, this app makes storytelling effortless and enjoyable. It’s not just about reading — it’s about creating, sharing, and exploring imaginative worlds in a few taps.
   `,
     stack: ['React Native', 'TypeScript', 'Revenuecat', 'firebase', 'django'],
-    livePreview: 'https://github.com',
     image: 'magictl.png',
     images: [
       '/images/1.png',
@@ -56,7 +55,6 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
       'A multivendor e-commerce app with social and AI-powered features.',
     longDescription: ` Arkive is a dynamic multivendor e-commerce platform that connects sellers and buyers in one place. Beyond traditional shopping, Arkive integrates a social news feed where users and sellers can post updates, share product highlights, and engage with the community. Buyers can browse and purchase products seamlessly, while sellers have full control to add, edit, and delete their listings. The app also features an AI-powered search functionality that intelligently matches clothing items to user preferences, making product discovery smarter and more personalized. With advanced analytics, buyers and sellers can view highly dynamic stats to track performance, trends, and engagement. Arkive blends commerce with community, offering a modern shopping experience that is interactive, social, and AI-enhanced. `,
     stack: ['React Native', 'TypeScript', 'Stripe', 'firebase', 'node js'],
-    livePreview: 'https://github.com',
     image: 'arkbg.png',
     images: [
       '/images/1a.png',
@@ -76,6 +74,27 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
     apk: 'https://drive.google.com/file/d/1pCs77bdwwPOm6VhO_6a_rdXoidDYNDqb/view?usp=drive_link',
     playStore:
       'https://play.google.com/store/apps/details?id=com.sparktech.sas',
+    appStore: 'https://apps.apple.com/us/app/arkive-ecom/id6761667415',
+  },
+  {
+    name: 'Preachly',
+    type: 'app',
+    description:
+      'A Christian learning app with weekly lessons and an AI chatbot to help users explore their faith.',
+    longDescription:
+      'Preachly brings Christian learning together in one app, with weekly lessons and an AI chatbot for faith-related questions.',
+    image:
+      'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/40/f3/f3/40f3f321-6d7b-0cf3-e969-8d4231d55adb/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg',
+    images: [
+      'https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/5a/d0/a9/5ad0a9a0-8d6b-77f2-43e4-6390ca59bd29/iphoness1_1242x2688.jpg/320x480bb.jpg',
+      'https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/30/ae/21/30ae2136-6738-b6e2-92c0-1e91ba3a6842/iphoness2_1242x2688.jpg/320x480bb.jpg',
+      'https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/87/0d/17/870d1769-94b1-adca-9597-23495447f375/iphoness3_1242x2688.jpg/320x480bb.jpg',
+    ],
+    features: [
+      'Weekly Christian learning lessons',
+      'AI chatbot for faith-related questions',
+    ],
+    appStore: 'https://apps.apple.com/us/app/preachly/id6753197639',
   },
   {
     name: 'Tika Food',
@@ -96,7 +115,6 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
     offers a complete ecosystem for food ordering, delivery, and vendor growth.
   `,
     stack: ['React Native', 'TypeScript', 'node', 'stripe'],
-    livePreview: 'https://github.com',
     image: 'tika1.png',
     images: [
       '/images/t1.png',
@@ -145,7 +163,6 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
       'Recently Viewed history',
       'Live movie data from TMDB',
     ],
-    sourceCode: '#',
   },
   {
     name: 'Sentinel',
@@ -164,7 +181,6 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
     "who's free?" — the answer is always on screen.
     `,
     stack: ['Next.js', 'Node.js', 'Express', 'MySQL', 'WebSocket'],
-    livePreview: '#',
     image: 's1.png',
     images: ['/images/s1.png'],
     features: [
@@ -175,7 +191,6 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
       'Burnout risk detection — see who is overloaded at a glance',
       'Live dashboard showing who is free vs fully booked',
     ],
-    sourceCode: '#',
     imp: 'Actively improving this — planning to add AI-based burnout prediction, Slack notifications, and sprint analytics. May run into rough edges while exploring.',
   },
   {
@@ -216,7 +231,51 @@ Whether you want to generate exciting adventures, heartfelt tales, or creative s
       'Full explanation in simple Bangla',
       'No signup required — completely free to use',
     ],
-    sourceCode: '#',
+  },
+]
+
+const experience = [
+  {
+    period: '2018–2019',
+    company: 'Fiverr & Upwork',
+    role: 'Freelance Developer',
+    description:
+      'Started my professional journey through freelance projects. Worked directly with clients to understand requests, deliver software features, and refine the work through feedback.',
+  },
+  {
+    period: '2019–2022',
+    company: 'Local Clients',
+    role: 'Freelance Developer',
+    description:
+      'Partnered with local clients to turn their needs into practical software solutions, managing communication, implementation, revisions, and delivery.',
+  },
+  {
+    period: '2022',
+    company: 'Qunolist',
+    role: 'Software Quality Assurance (SQA)',
+    description:
+      'Focused on product quality by checking user flows, documenting defects, and sharing clear reproduction steps so issues could be investigated and resolved.',
+  },
+  {
+    period: '2024',
+    company: 'Urban IT Solution',
+    role: 'Software Engineer',
+    description:
+      'Contributed to software delivery by implementing and maintaining features, investigating bugs, and collaborating with the team to meet project requirements.',
+  },
+  {
+    period: 'Jan 2025–May 2025',
+    company: 'Smart Software Ltd',
+    role: 'Software Engineer',
+    description:
+      'Worked with the software team on feature implementation, debugging, and testing to support the delivery and ongoing improvement of its products.',
+  },
+  {
+    period: 'May 2025–Present',
+    company: 'Sparktech Software',
+    role: 'Software Engineer',
+    description:
+      'Build and improve mobile and web product features using React Native, React, TypeScript, and Node.js, contributing across implementation, debugging, testing, and release workflows.',
   },
 ]
 
@@ -248,8 +307,8 @@ const educatioin = {
 
 const contact = {
   // email is optional - if left empty Contact section won't show up
-  email: 'shahriarc19@mail.com',
+  email: 'shahriarc19@gmail.com',
   call: '01604173222',
 }
 
-export { header, about, projects, skills, contact, educatioin }
+export { header, about, projects, experience, skills, contact, educatioin }

@@ -1,32 +1,27 @@
-import { useEffect, useState } from 'react'
 import { about } from '../../portfolio'
 
 const About = () => {
-  const { name, role, resume, social } = about
-  const [, setLoaded] = useState(false)
+  const { name, role, resume, social, description, picture } = about
 
-  useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 100)
-    return () => clearTimeout(t)
-  }, [])
+  const skills = ['React Native', 'React', 'TypeScript', 'Node.js', 'REST APIs']
 
   return (
     <section
       id='about'
       style={{
         padding: '100px 40px',
-        // background: 'linear-gradient(160deg, #0f172a 0%, #162032 60%, #0f172a 100%)',
         margin: '60px 0',
-        borderRadius: '20px',
+        borderRadius: '22px',
         fontFamily: "'DM Sans', sans-serif",
         position: 'relative',
         overflow: 'hidden',
-        // border: '1px solid #1e293b',
-        // boxShadow: '0 0 0 1px #000, 0 32px 80px rgba(0,0,0,0.6)',
+        background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.72))',
+        border: '1px solid rgba(148, 163, 184, 0.15)',
+        boxShadow: '0 24px 80px rgba(15, 23, 42, 0.24)',
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
 
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(28px); }
@@ -38,7 +33,7 @@ const About = () => {
         }
         @keyframes glowPulse {
           0%, 100% { opacity: 0.4; }
-          50%       { opacity: 0.65; }
+          50%       { opacity: 0.75; }
         }
         @keyframes rotateSlow {
           from { transform: rotate(0deg); }
@@ -46,22 +41,24 @@ const About = () => {
         }
 
         .about-photo-wrap:hover .about-photo-ring {
-          opacity: 0.6 !important;
+          opacity: 0.8 !important;
         }
         .about-photo-wrap:hover img {
-          transform: scale(1.03);
+          transform: scale(1.04);
         }
         .about-photo-wrap img {
           transition: transform 0.4s ease;
         }
         .about-cta:hover {
           background: #60a5fa !important;
-          color: #000 !important;
+          color: #020817 !important;
           border-color: #60a5fa !important;
+          transform: translateY(-1px);
         }
         .about-social-link:hover {
           color: #60a5fa !important;
           border-color: #60a5fa44 !important;
+          transform: translateY(-1px);
         }
         .about-tag {
           transition: all 0.2s ease;
@@ -69,37 +66,41 @@ const About = () => {
         .about-tag:hover {
           background: rgba(96,165,250,0.15) !important;
           border-color: #60a5fa55 !important;
+          transform: translateY(-1px);
         }
       `}</style>
 
-      {/* Grid texture */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        // backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
-        backgroundSize: '48px 48px',
-        pointerEvents: 'none',
-      }} />
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(circle at 15% 20%, rgba(96,165,250,0.18), transparent 36%)',
+          pointerEvents: 'none',
+        }}
+      />
 
-      {/* Ambient glow */}
-      <div style={{
-        position: 'absolute',
-        top: '-80px', left: '5%',
-        width: '500px', height: '400px',
-        background: 'radial-gradient(ellipse, rgba(96,165,250,0.06) 0%, transparent 70%)',
-        pointerEvents: 'none',
-        animation: 'glowPulse 5s ease-in-out infinite',
-      }} />
+      <div
+        style={{
+          position: 'absolute',
+          top: '-80px',
+          left: '5%',
+          width: '520px',
+          height: '420px',
+          background: 'radial-gradient(ellipse, rgba(96,165,250,0.12) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          animation: 'glowPulse 5s ease-in-out infinite',
+        }}
+      />
 
-      {/* Main layout */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '72px',
-        position: 'relative',
-        flexWrap: 'wrap',
-      }}>
-
-        {/* ── Left: Photo ── */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '72px',
+          position: 'relative',
+          flexWrap: 'wrap',
+        }}
+      >
         <div
           className='about-photo-wrap'
           style={{
@@ -109,140 +110,168 @@ const About = () => {
             opacity: 0,
           }}
         >
-          {/* Rotating ring */}
           <div
             className='about-photo-ring'
             style={{
               position: 'absolute',
-              inset: '-10px',
+              inset: '-12px',
               borderRadius: '50%',
-              border: '1px dashed rgba(96,165,250,0.25)',
+              border: '1px dashed rgba(96,165,250,0.35)',
               animation: 'rotateSlow 18s linear infinite',
-              opacity: 0.35,
+              opacity: 0.5,
               transition: 'opacity 0.4s',
             }}
           />
 
-          {/* Static accent ring */}
-          <div style={{
-            position: 'absolute',
-            inset: '-4px',
-            borderRadius: '50%',
-            background: 'conic-gradient(from 180deg, #60a5fa22, #a78bfa22, #60a5fa22)',
-          }} />
+          <div
+            style={{
+              position: 'absolute',
+              inset: '-5px',
+              borderRadius: '50%',
+              background: 'conic-gradient(from 180deg, rgba(96,165,250,0.22), rgba(167,139,250,0.2), rgba(96,165,250,0.22))',
+            }}
+          />
 
           <img
-            src= 'https://avatars.githubusercontent.com/u/95222498?v=4'
+            src={picture || 'https://avatars.githubusercontent.com/u/95222498?v=4'}
             alt={name}
             style={{
-              width: '200px',
-              height: '200px',
+              width: '220px',
+              height: '220px',
               borderRadius: '50%',
               objectFit: 'cover',
               display: 'block',
               position: 'relative',
-              border: '3px solid #1e293b',
+              border: '3px solid rgba(148, 163, 184, 0.3)',
+              boxShadow: '0 20px 45px rgba(0, 0, 0, 0.28)',
             }}
           />
         </div>
 
-        {/* ── Right: Content ── */}
         <div style={{ flex: 1, minWidth: '280px' }}>
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              border: '1px solid rgba(96,165,250,0.25)',
+              background: 'rgba(96,165,250,0.08)',
+              color: '#93c5fd',
+              borderRadius: '999px',
+              padding: '6px 12px',
+              fontSize: '0.7rem',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              marginBottom: '18px',
+              animation: 'fadeUp 0.6s ease forwards',
+              opacity: 0,
+            }}
+          >
+            Open to software engineering opportunities
+          </div>
 
-          {/* Eyebrow */}
-          <p style={{
-            fontFamily: "'Syne', sans-serif",
-            fontSize: '0.68rem',
-            letterSpacing: '0.28em',
-            color: '#3a4a5a',
-            textTransform: 'uppercase',
-            marginBottom: '16px',
-            animation: 'fadeUp 0.6s ease forwards',
-            opacity: 0,
-          }}>
+          <p
+            style={{
+              fontFamily: "'Syne', sans-serif",
+              fontSize: '0.68rem',
+              letterSpacing: '0.28em',
+              color: '#94a3b8',
+              textTransform: 'uppercase',
+              marginBottom: '16px',
+              animation: 'fadeUp 0.65s ease forwards',
+              animationDelay: '0.08s',
+              opacity: 0,
+            }}
+          >
             About me
           </p>
 
-          {/* Name */}
-          <h1 style={{
-            fontFamily: "'Syne', sans-serif",
-            fontSize: 'clamp(2rem, 5vw, 3.2rem)',
-            fontWeight: '800',
-            color: '#f0f0f0',
-            lineHeight: 1.05,
-            margin: '0 0 8px',
-            animation: 'fadeUp 0.65s ease forwards',
-            animationDelay: '0.08s',
-            opacity: 0,
-          }}>
+          <h1
+            style={{
+              fontFamily: "'Syne', sans-serif",
+              fontSize: 'clamp(2.1rem, 4vw, 3.8rem)',
+              fontWeight: '800',
+              color: '#f8fafc',
+              lineHeight: 1.02,
+              margin: '0 0 12px',
+              animation: 'fadeUp 0.7s ease forwards',
+              animationDelay: '0.14s',
+              opacity: 0,
+            }}
+          >
             {name}
           </h1>
 
-          {/* Role with accent */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            marginBottom: '28px',
-            animation: 'fadeUp 0.65s ease forwards',
-            animationDelay: '0.14s',
-            opacity: 0,
-          }}>
-            <div style={{
-              width: '24px', height: '2px',
-              background: '#60a5fa',
-              flexShrink: 0,
-            }} />
-            <span style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: '1rem',
-              color: '#60a5fa',
-              fontWeight: '500',
-              letterSpacing: '0.03em',
-            }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              marginBottom: '22px',
+              animation: 'fadeUp 0.75s ease forwards',
+              animationDelay: '0.2s',
+              opacity: 0,
+            }}
+          >
+            <div
+              style={{
+                width: '28px',
+                height: '2px',
+                background: '#60a5fa',
+                flexShrink: 0,
+              }}
+            />
+            <span
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: '1.02rem',
+                color: '#60a5fa',
+                fontWeight: '600',
+                letterSpacing: '0.04em',
+              }}
+            >
               {role}
             </span>
           </div>
 
-          {/* Bio — short and punchy, no bullet list */}
-          <p style={{
-            fontSize: '0.95rem',
-            color: '#4a5a6a',
-            lineHeight: 1.8,
-            margin: '0 0 32px',
-            maxWidth: '480px',
-            fontWeight: '300',
-            animation: 'fadeUp 0.65s ease forwards',
-            animationDelay: '0.2s',
-            opacity: 0,
-          }}>
-            I build products that live on phones and browsers —
-            from pixel to production. Worked with companies across
-            Bangladesh and internationally, turning complex problems
-            into clean, efficient software.
+          <p
+            style={{
+              fontSize: '0.98rem',
+              color: '#cbd5e1',
+              lineHeight: 1.8,
+              margin: '0 0 28px',
+              maxWidth: '540px',
+              fontWeight: '400',
+              animation: 'fadeUp 0.8s ease forwards',
+              animationDelay: '0.26s',
+              opacity: 0,
+            }}
+          >
+            {description ||
+              'I build products that live on phones and browsers — from pixel to production. I turn complex ideas into clean, efficient software that feels effortless for users and valuable for businesses.'}
           </p>
 
-          {/* Tags */}
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '8px',
-            marginBottom: '36px',
-            animation: 'fadeUp 0.65s ease forwards',
-            animationDelay: '0.26s',
-            opacity: 0,
-          }}>
-            {['React Native', 'React', 'Node.js', 'Full Stack', 'Mobile Dev'].map(tag => (
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '8px',
+              marginBottom: '32px',
+              animation: 'fadeUp 0.85s ease forwards',
+              animationDelay: '0.32s',
+              opacity: 0,
+            }}
+          >
+            {skills.map((tag) => (
               <span
                 key={tag}
                 className='about-tag'
                 style={{
-                  padding: '4px 12px',
+                  padding: '6px 12px',
                   borderRadius: '999px',
-                  fontSize: '0.74rem',
+                  fontSize: '0.73rem',
                   fontWeight: '500',
-                  color: '#60a5fa',
-                  border: '1px solid rgba(96,165,250,0.2)',
+                  color: '#93c5fd',
+                  border: '1px solid rgba(96,165,250,0.22)',
                   background: 'rgba(96,165,250,0.06)',
                   cursor: 'default',
                 }}
@@ -252,16 +281,17 @@ const About = () => {
             ))}
           </div>
 
-          {/* CTA row */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '16px',
-            flexWrap: 'wrap',
-            animation: 'fadeUp 0.65s ease forwards',
-            animationDelay: '0.32s',
-            opacity: 0,
-          }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
+              flexWrap: 'wrap',
+              animation: 'fadeUp 0.9s ease forwards',
+              animationDelay: '0.38s',
+              opacity: 0,
+            }}
+          >
             {resume && (
               <a
                 href={resume}
@@ -269,12 +299,12 @@ const About = () => {
                 rel='noopener noreferrer'
                 className='about-cta'
                 style={{
-                  padding: '10px 24px',
+                  padding: '12px 24px',
                   borderRadius: '999px',
-                  border: '1px solid #60a5fa',
-                  color: '#60a5fa',
-                  fontSize: '0.82rem',
-                  fontWeight: '600',
+                  border: '1px solid rgba(96,165,250,0.9)',
+                  color: '#bfdbfe',
+                  fontSize: '0.83rem',
+                  fontWeight: '700',
                   textDecoration: 'none',
                   transition: 'all 0.25s ease',
                   fontFamily: "'Syne', sans-serif",
@@ -285,80 +315,35 @@ const About = () => {
               </a>
             )}
 
-            {social && Object.entries(social).map(([platform, link]) => (
-              link && (
-                <a
-                  key={platform}
-                  href={link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='about-social-link'
-                  style={{
-                    padding: '10px 18px',
-                    borderRadius: '999px',
-                    border: '1px solid #1e293b',
-                    color: '#3a4a5a',
-                    fontSize: '0.8rem',
-                    fontWeight: '500',
-                    textDecoration: 'none',
-                    transition: 'all 0.25s ease',
-                    textTransform: 'capitalize',
-                    fontFamily: "'DM Sans', sans-serif",
-                  }}
-                >
-                  {platform}
-                </a>
-              )
-            ))}
+            {social &&
+              Object.entries(social).map(
+                ([platform, link]) =>
+                  link && (
+                    <a
+                      key={platform}
+                      href={link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='about-social-link'
+                      style={{
+                        padding: '11px 16px',
+                        borderRadius: '999px',
+                        border: '1px solid rgba(148, 163, 184, 0.2)',
+                        color: '#cbd5e1',
+                        fontSize: '0.78rem',
+                        fontWeight: '600',
+                        textDecoration: 'none',
+                        transition: 'all 0.25s ease',
+                        textTransform: 'capitalize',
+                        fontFamily: "'DM Sans', sans-serif",
+                      }}
+                    >
+                      {platform}
+                    </a>
+                  )
+              )}
           </div>
         </div>
-      </div>
-
-      {/* Bottom divider */}
-      <div style={{
-        marginTop: '72px',
-        height: '1px',
-        background: 'linear-gradient(90deg, transparent, #1e293b, transparent)',
-      }} />
-
-      {/* Stats row */}
-      <div style={{
-        display: 'flex',
-        gap: '48px',
-        marginTop: '40px',
-        flexWrap: 'wrap',
-        animation: 'fadeUp 0.65s ease forwards',
-        animationDelay: '0.4s',
-        opacity: 0,
-      }}>
-        {[
-          { number: '2+',  label: 'Years experience' },
-          { number: '10+', label: 'Projects shipped' },
-          { number: '500+', label: 'Problems solved' },
-        ].map(stat => (
-          <div key={stat.label}>
-            <p style={{
-              fontFamily: "'Syne', sans-serif",
-              fontSize: '2rem',
-              fontWeight: '800',
-              color: '#f0f0f0',
-              margin: '0 0 4px',
-              lineHeight: 1,
-            }}>
-              {stat.number}
-            </p>
-            <p style={{
-              fontSize: '0.75rem',
-              color: '#2a3a4a',
-              margin: 0,
-              fontWeight: '400',
-              letterSpacing: '0.05em',
-              textTransform: 'uppercase',
-            }}>
-              {stat.label}
-            </p>
-          </div>
-        ))}
       </div>
 
     </section>

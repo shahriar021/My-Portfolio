@@ -59,7 +59,8 @@ const Contact = () => {
           marginBottom: '55px',
         }}
       >
-        <span
+        <a
+          href={`mailto:${contact.email}`}
           className='btn btn--outline'
           style={{
             padding: '12px 30px',
@@ -72,24 +73,27 @@ const Contact = () => {
             animation: 'pulse 2s infinite',
           }}
         >
-          shahriarc19@gmail.com
-        </span>
+          {contact.email}
+        </a>
 
-        <span
-          className='btn btn--outline'
-          style={{
-            padding: '12px 30px',
-            borderRadius: '10px',
-            fontWeight: '500',
-            fontSize: '1rem',
-            letterSpacing: '0.5px',
-            background: '#2c3e50',
-            color: '#fff',
-            animation: 'pulse 2s infinite',
-          }}
-        >
-          01604173222
-        </span>
+        {contact.call && (
+          <a
+            href={`tel:${contact.call.replace(/[^\d+]/g, '')}`}
+            className='btn btn--outline'
+            style={{
+              padding: '12px 30px',
+              borderRadius: '10px',
+              fontWeight: '500',
+              fontSize: '1rem',
+              letterSpacing: '0.5px',
+              background: '#2c3e50',
+              color: '#fff',
+              animation: 'pulse 2s infinite',
+            }}
+          >
+            {contact.call}
+          </a>
+        )}
       </div>
 
       {/* Social links */}

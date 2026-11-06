@@ -165,15 +165,42 @@ const ProjectDetails = () => {
 
             {project.imp && <p className='note-color'>NOTE:{project.imp}</p>}
           </div>
-          {project.playStore && <p style={{fontFamily:'monospace',fontWeight:"bold",fontSize:20,marginTop:20}}>Availabe on</p>}
+          {(project.playStore || project.appStore) && (
+            <p style={{ fontFamily: 'monospace', fontWeight: 'bold', fontSize: 20, marginTop: 20 }}>
+              Available on
+            </p>
+          )}
           <div className='publish-links'>
             {project.playStore && (
-              <a href={project.playStore}>
+              <a href={project.playStore} target='_blank' rel='noreferrer'>
                 <img
                   src='/images/playstore.avif'
                   alt='Play Store'
                   style={{ width: 100, height: 'auto', cursor: 'pointer' }}
                 />
+              </a>
+            )}
+            {project.appStore && (
+              <a
+                href={project.appStore}
+                target='_blank'
+                rel='noreferrer'
+                className='app-store-badge'
+                aria-label={`Download ${project.name} on the App Store`}
+              >
+                <svg
+                  aria-hidden='true'
+                  viewBox='0 0 24 24'
+                  width='25'
+                  height='25'
+                  fill='currentColor'
+                >
+                  <path d='M16.37 1.43c0 1.14-.42 2.28-1.26 3.09-.84.81-2.13 1.44-3.25 1.35-.13-1.1.4-2.38 1.21-3.2.9-.91 2.45-1.56 3.3-1.24ZM20.5 15.6c-.5 1.15-.75 1.65-1.4 2.67-.92 1.46-2.21 3.28-3.81 3.3-1.43.02-1.8-.93-3.73-.92-1.93 0-2.34.95-3.78.93-1.6-.02-2.82-1.66-3.74-3.12-2.58-4.1-2.85-8.91-1.26-11.46 1.12-1.82 2.9-2.89 4.57-2.89 1.7 0 2.77.95 4.18.95 1.37 0 2.21-.95 4.17-.95 1.49 0 3.08.81 4.2 2.21-3.69 2.02-3.09 7.29.6 9.28Z' />
+                </svg>
+                <span className='app-store-badge__text'>
+                  <span>Download on the</span>
+                  <strong>App Store</strong>
+                </span>
               </a>
             )}
           </div>

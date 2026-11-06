@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' // Imp
 import { ThemeContext } from './contexts/theme'
 import Header from './components/Header/Header'
 import About from './components/About/About'
+import Experience from './components/Experience/Experience'
 import Projects from './components/Projects/Projects'
 import Skills from './components/Skills/Skills'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
@@ -39,6 +40,7 @@ const App = () => {
               element={
                 <>
                   <About />
+                  <Experience />
                   <Projects />
                   <Skills />
                   <Education />

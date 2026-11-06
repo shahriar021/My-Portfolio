@@ -524,13 +524,15 @@ const Projects = () => {
                     <div className='pj-divider' />
 
                     {/* stack */}
-                    <div className='pj-stack'>
-                      {project.stack.map((tech) => (
-                        <span key={tech} className='pj-chip'>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    {project.stack && project.stack.length > 0 && (
+                      <div className='pj-stack'>
+                        {project.stack.map((tech) => (
+                          <span key={tech} className='pj-chip'>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
 
                     {/* view hint */}
                     <span className='pj-hint'>View details</span>

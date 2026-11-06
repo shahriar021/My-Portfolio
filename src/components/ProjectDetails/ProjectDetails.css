@@ -114,6 +114,35 @@
   transform: scale(1.03); /* subtle zoom effect */
 }
 
+.publish-links .app-store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 6px 12px;
+  color: #fff;
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.app-store-badge__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.app-store-badge__text span {
+  font-size: 0.62rem;
+  font-weight: 400;
+}
+
+.app-store-badge__text strong {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
 .gradient-text {
   font-size: 2.5rem; /* adjust size as needed */
   font-weight: 700;
