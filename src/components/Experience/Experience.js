@@ -2,31 +2,48 @@ import { experience } from '../../portfolio'
 import './Experience.css'
 
 const Experience = () => (
-  <section id='experience' className='experience-section'>
-    <div className='experience-inner'>
-      <header className='experience-header'>
-        <p className='experience-eyebrow'>Career journey</p>
-        <h2 className='experience-title'>Experience that <span>builds</span></h2>
-        <p className='experience-intro'>
-          From freelance beginnings to product teams, I’ve grown across
-          software development, quality assurance, and mobile and web delivery.
-        </p>
-      </header>
+  <section id='experience' className='section'>
+    <div className='container xp'>
+      <div className='xp__head'>
+        <div className='reveal'>
+          <p className='eyebrow'>
+            <span>02</span> — Experience
+          </p>
+          <h2 className='section-title'>
+            Where I&apos;ve <span className='serif accent'>grown.</span>
+          </h2>
+          <p className='section-sub' style={{ marginTop: 20 }}>
+            From freelance gigs in 2018 to product teams today, with a stint in
+            QA that taught me to obsess over the details users actually feel.
+          </p>
+        </div>
+      </div>
 
-      <ol className='experience-timeline'>
-        {experience.map((item) => (
-          <li key={`${item.company}-${item.period}`} className='experience-item'>
-            <div className='experience-period'>{item.period}</div>
-            <article className='experience-card'>
-              <div className='experience-card-heading'>
-                <div>
-                  <h3>{item.role}</h3>
-                  <p className='experience-company'>{item.company}</p>
-                </div>
-                <span className='experience-marker' aria-hidden='true' />
-              </div>
-              <p className='experience-description'>{item.description}</p>
-            </article>
+      <ol className='xp__list'>
+        {experience.map((item, i) => (
+          <li
+            key={`${item.company}-${item.period}`}
+            className={`xp__item reveal ${item.current ? 'xp__item--current' : ''}`}
+            style={{ '--delay': `${Math.min(i, 3) * 0.05}s` }}
+          >
+            <div className='xp__period'>
+              {item.current && <span className='dot' />}
+              {item.period}
+            </div>
+            <div className='xp__content'>
+              <h3 className='xp__role'>{item.role}</h3>
+              <p className='xp__company'>{item.company}</p>
+              <p className='xp__desc'>{item.description}</p>
+              {item.tags && (
+                <ul className='xp__tags'>
+                  {item.tags.map((t) => (
+                    <li key={t} className='chip'>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </li>
         ))}
       </ol>

@@ -1,212 +1,196 @@
-import { useParams, Link } from 'react-router-dom'
-import { useEffect } from 'react' // Import useEffect
-import { projects } from '../../portfolio'
+import { useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { about, projects, slugify } from '../../portfolio'
+import { ProjectMedia } from '../Projects/Projects'
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Apple,
+  PlayStore,
+  Globe,
+  Code,
+  Smartphone,
+} from '../Icons'
 import './ProjectDetails.css'
 
 const ProjectDetails = () => {
   const { projectId } = useParams()
+  const index = projects.findIndex((p) => slugify(p.name) === projectId)
+  const project = projects[index]
 
-  // Scroll to top automatically when this page opens
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
-  const project = projects.find(
-    (p) => p.name.toLowerCase().replace(/\s+/g, '-') === projectId
-  )
-
-  console.log(
-    projects.find(
-      (p) => p.name.toLowerCase().replace(/\s+/g, '-') === projectId
-    )
-  )
+    document.title = project ? `${project.name} · ${about.name}` : about.name
+    return () => {
+      document.title = `${about.name} · Software Engineer`
+    }
+  }, [project])
 
   if (!project) {
     return (
-      <section
-        className='section'
-        style={{ textAlign: 'center', color: 'var(--clr-fg)' }}
-      >
-        <h2 className='section__title'>Project not found</h2>
-        <Link to='/' className='link'>
-          Go Back to Home
+      <section className='container notfound'>
+        <p className='eyebrow'>
+          <span>404</span> — Project not found
+        </p>
+        <h1 className='section-title'>That project doesn&apos;t exist.</h1>
+        <Link to='/#work' className='btn btn--primary' style={{ marginTop: 32 }}>
+          <ArrowLeft /> All projects
         </Link>
       </section>
     )
   }
 
+  const next = projects[(index + 1) % projects.length]
+  const isApp = project.type === 'app'
+  const paragraphs = project.longDescription
+    .split(/\n\s*\n/)
+    .map((p) => p.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+
+  const links = [
+    project.appStore && { href: project.appStore, label: 'App Store', icon: <Apple />, primary: true },
+    project.playStore && { href: project.playStore, label: 'Google Play', icon: <PlayStore />, primary: true },
+    project.livePreview && { href: project.livePreview, label: 'Visit live site', icon: <Globe />, primary: true },
+    project.sourceCode && { href: project.sourceCode, label: 'Source code', icon: <Code /> },
+    project.apk && { href: project.apk, label: 'Android APK', icon: <Smartphone /> },
+  ].filter(Boolean)
+
   return (
-    <section
-      className='section project-details'
-      style={{ minHeight: '100vh', padding: '2rem 0' }}
-    >
-      <div style={{ maxWidth: '100%', margin: '0 auto', width: '90%' }}>
-        <Link
-          to='/'
-          className='link'
-          style={{ marginBottom: '2rem', display: 'inline-block' }}
-        >
-          ← Back to Projects
+    <article className='pd' key={project.name}>
+      <div className='container'>
+        <Link to='/#work' className='pd__back reveal'>
+          <ArrowLeft /> All projects
         </Link>
 
-        <h2
-          className='section__title gradient-text'
-          style={{ marginBottom: '1.5rem' }}
-        >
-          {project.name}
-        </h2>
-
-        {/* Project Images */}
-        {project.images && (
-          <div className='project-images'>
-            {project.images.map((img) => (
-              <img key={img} src={img} alt={project.name} />
-            ))}
-          </div>
-        )}
-
-        <div
-          className='details__content'
-          style={{
-            background: 'var(--clr-bg-alt)',
-            padding: '2.5rem',
-            borderRadius: '12px',
-            boxShadow: 'var(--shadow)',
-            lineHeight: '1.8',
-            color: 'var(--clr-fg)',
-          }}
-        >
-          {/* Main Description */}
-          <p style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
-            {project.description}
+        <header className='pd__header'>
+          <p className='eyebrow reveal'>
+            <span>{String(index + 1).padStart(2, '0')}</span> —{' '}
+            {isApp ? 'Mobile app · React Native' : 'Web app'}
+          </p>
+          <h1 className='pd__title reveal' style={{ '--delay': '0.06s' }}>
+            {project.name}
+          </h1>
+          <p className='pd__tagline reveal' style={{ '--delay': '0.12s' }}>
+            {project.tagline}
           </p>
 
-          {project.longDescription && (
-            <div style={{ marginTop: '2rem' }}>
-              <h4 style={{ marginBottom: '1rem', color: 'var(--clr-primary)' }}>
-                Project Overview
-              </h4>
-              <p style={{ whiteSpace: 'pre-line', opacity: 0.9 }}>
-                {project.longDescription}
-              </p>
-            </div>
-          )}
-
-          {/* Features List */}
-          {project.features && (
-            <div style={{ marginTop: '2rem' }}>
-              <h4 style={{ marginBottom: '1rem', color: 'var(--clr-primary)' }}>
-                Features:
-              </h4>
-              <ul
-                style={{
-                  listStyleType: 'disc',
-                  paddingLeft: '20px',
-                  opacity: 0.9,
-                }}
-              >
-                {project.features.map((feature) => (
-                  <li key={feature} style={{ marginBottom: '0.5rem' }}>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Tech Stack List (Optional) */}
-          {project.stack && (
-            <div style={{ marginTop: '2rem' }}>
-              <h4 style={{ marginBottom: '1rem', color: 'var(--clr-primary)' }}>
-                Technologies Used:
-              </h4>
-              <ul
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '10px',
-                  listStyle: 'none',
-                  padding: 0,
-                }}
-              >
-                {project.stack.map((item) => (
-                  <li
-                    key={item}
-                    style={{
-                      padding: '5px 15px',
-                      background: 'rgba(255,255,255,0.05)',
-                      borderRadius: '4px',
-                      fontSize: '0.9rem',
-                    }}
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <div className='project-links'>
-            {project.sourceCode && (
-              <a href={project.sourceCode} target='_blank' rel='noreferrer'>
-                Source Code
-              </a>
-            )}
-            {project.livePreview && (
-              <a href={project.livePreview} target='_blank' rel='noreferrer'>
-                Live Preview
-              </a>
-            )}
-            {project.apk && (
-              <a href={project.apk} download>
-                Download APK
-              </a>
-            )}
-
-            {project.imp && <p className='note-color'>NOTE:{project.imp}</p>}
-          </div>
-          {(project.playStore || project.appStore) && (
-            <p style={{ fontFamily: 'monospace', fontWeight: 'bold', fontSize: 20, marginTop: 20 }}>
-              Available on
-            </p>
-          )}
-          <div className='publish-links'>
-            {project.playStore && (
-              <a href={project.playStore} target='_blank' rel='noreferrer'>
-                <img
-                  src='/images/playstore.avif'
-                  alt='Play Store'
-                  style={{ width: 100, height: 'auto', cursor: 'pointer' }}
-                />
-              </a>
-            )}
-            {project.appStore && (
-              <a
-                href={project.appStore}
-                target='_blank'
-                rel='noreferrer'
-                className='app-store-badge'
-                aria-label={`Download ${project.name} on the App Store`}
-              >
-                <svg
-                  aria-hidden='true'
-                  viewBox='0 0 24 24'
-                  width='25'
-                  height='25'
-                  fill='currentColor'
+          {links.length > 0 && (
+            <div className='pd__links reveal' style={{ '--delay': '0.18s' }}>
+              {links.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className={`btn ${l.primary ? 'btn--primary' : 'btn--ghost'}`}
                 >
-                  <path d='M16.37 1.43c0 1.14-.42 2.28-1.26 3.09-.84.81-2.13 1.44-3.25 1.35-.13-1.1.4-2.38 1.21-3.2.9-.91 2.45-1.56 3.3-1.24ZM20.5 15.6c-.5 1.15-.75 1.65-1.4 2.67-.92 1.46-2.21 3.28-3.81 3.3-1.43.02-1.8-.93-3.73-.92-1.93 0-2.34.95-3.78.93-1.6-.02-2.82-1.66-3.74-3.12-2.58-4.1-2.85-8.91-1.26-11.46 1.12-1.82 2.9-2.89 4.57-2.89 1.7 0 2.77.95 4.18.95 1.37 0 2.21-.95 4.17-.95 1.49 0 3.08.81 4.2 2.21-3.69 2.02-3.09 7.29.6 9.28Z' />
-                </svg>
-                <span className='app-store-badge__text'>
-                  <span>Download on the</span>
-                  <strong>App Store</strong>
-                </span>
-              </a>
+                  {l.icon} {l.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </header>
+
+        <div className={`pd__hero reveal pd__hero--${project.type}`} style={{ '--delay': '0.2s' }}>
+          <ProjectMedia project={project} eager />
+        </div>
+
+        <div className='pd__grid'>
+          <div className='pd__overview reveal'>
+            <h2 className='pd__h'>Overview</h2>
+            {paragraphs.map((p) => (
+              <p key={p.slice(0, 32)}>{p}</p>
+            ))}
+            {project.note && (
+              <p className='pd__note'>
+                <span className='dot' /> {project.note}
+              </p>
             )}
           </div>
+
+          <aside className='pd__facts reveal' style={{ '--delay': '0.08s' }}>
+            <div className='pd__fact'>
+              <p className='pd__fact-label'>Platform</p>
+              <p>{isApp ? 'Mobile (React Native)' : 'Web'}</p>
+            </div>
+            {(project.appStore || project.playStore || project.livePreview) && (
+              <div className='pd__fact'>
+                <p className='pd__fact-label'>Status</p>
+                <p className='accent'>
+                  {project.appStore || project.playStore ? 'Live on the stores' : 'Live in production'}
+                </p>
+              </div>
+            )}
+            <div className='pd__fact'>
+              <p className='pd__fact-label'>Tech stack</p>
+              <ul className='pd__stack'>
+                {project.stack.map((s) => (
+                  <li key={s} className='chip'>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
         </div>
+
+        {project.features && (
+          <section className='pd__section'>
+            <h2 className='pd__h reveal'>Key features</h2>
+            <ol className='pd__features'>
+              {project.features.map((f, i) => (
+                <li key={f} className='reveal' style={{ '--delay': `${(i % 3) * 0.06}s` }}>
+                  <span>{String(i + 1).padStart(2, '0')}</span>
+                  {f}
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {project.images && project.images.length > 0 && (
+          <section className='pd__section'>
+            <h2 className='pd__h reveal'>Screens</h2>
+            <div className={isApp ? 'pd__phones' : 'pd__browsers'}>
+              {project.images.map((src, i) =>
+                isApp ? (
+                  <figure key={src} className='phone reveal' style={{ '--delay': `${i * 0.07}s` }}>
+                    <img src={src} alt={`${project.name} screen ${i + 1}`} loading='lazy' />
+                  </figure>
+                ) : (
+                  <figure key={src} className='browser reveal'>
+                    <div className='browser__bar' aria-hidden>
+                      <i />
+                      <i />
+                      <i />
+                      {project.livePreview && (
+                        <span>{project.livePreview.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+                      )}
+                    </div>
+                    <img src={src} alt={`${project.name} screenshot ${i + 1}`} loading='lazy' />
+                  </figure>
+                )
+              )}
+            </div>
+          </section>
+        )}
+
+        <Link to={`/project/${slugify(next.name)}`} className='pd__next reveal'>
+          <span className='pd__next-label'>Next project</span>
+          <span className='pd__next-name'>
+            {next.name} <ArrowRight />
+          </span>
+          <span className='pd__next-tag'>{next.tagline}</span>
+        </Link>
+
+        <p className='pd__cta reveal'>
+          Like what you see?{' '}
+          <Link to='/#contact' className='accent'>
+            Get in touch <ArrowUpRight />
+          </Link>
+        </p>
       </div>
-    </section>
+    </article>
   )
 }
 

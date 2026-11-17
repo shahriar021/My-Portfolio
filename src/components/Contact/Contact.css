@@ -1,9 +1,132 @@
 .contact {
-  display: flex;
-  flex-direction: column; /* stacked vertically */
+  position: relative;
+  padding: clamp(36px, 7vw, 88px);
+  border-radius: 32px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  overflow: hidden;
+  isolation: isolate;
 }
 
+.contact__glow {
+  position: absolute;
+  z-index: -1;
+  right: -200px;
+  bottom: -300px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198, 242, 78, 0.16), transparent 60%);
+}
 
-.contact .link--icon {
-  margin-bottom: 0.8em;
+.contact__title {
+  font-size: clamp(2.2rem, 6vw, 4.6rem);
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+  max-width: 16ch;
+}
+
+.contact__sub {
+  margin-top: 24px;
+  max-width: 50ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.contact__email {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.contact__mailto {
+  height: 56px;
+  padding: 0 26px;
+  font-size: 1.02rem;
+}
+
+.contact__email .btn--ghost {
+  height: 56px;
+}
+
+.contact__links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: clamp(48px, 7vw, 72px);
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.clink {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 16px;
+  transition: background 0.25s;
+}
+
+.clink:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.clink__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  color: var(--muted);
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.clink__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.clink:hover .clink__icon {
+  color: var(--accent);
+  border-color: rgba(198, 242, 78, 0.4);
+}
+
+.clink__label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--dim);
+}
+
+.clink__value {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 960px) {
+  .contact__links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .contact {
+    border-radius: 24px;
+    padding: 32px 20px;
+  }
+  .contact__links {
+    grid-template-columns: 1fr;
+  }
+  .contact__email .btn {
+    width: 100%;
+  }
+  .contact__mailto {
+    font-size: 0.92rem;
+  }
 }

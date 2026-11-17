@@ -1,193 +1,98 @@
-import GitHubIcon from '@material-ui/icons/GitHub'
-import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import InstagramIcon from '@material-ui/icons/Instagram'
-import { contact, about } from '../../portfolio'
+import { useState } from 'react'
+import { about, contact } from '../../portfolio'
+import { ArrowUpRight, Copy, Check, Phone, GitHub, LinkedIn, Download } from '../Icons'
+import './Contact.css'
 
 const Contact = () => {
-  if (!contact.email) return null
-  const { social } = about
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(contact.email)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (e) {
+      window.location.href = `mailto:${contact.email}`
+    }
+  }
+
+  const links = [
+    contact.phone && {
+      label: 'Phone',
+      value: contact.phone,
+      href: `tel:${contact.phone.replace(/[^\d+]/g, '')}`,
+      icon: <Phone />,
+    },
+    about.social.linkedin && {
+      label: 'LinkedIn',
+      value: 'in/shahriar021',
+      href: about.social.linkedin,
+      icon: <LinkedIn />,
+      external: true,
+    },
+    about.social.github && {
+      label: 'GitHub',
+      value: '@shahriar021',
+      href: about.social.github,
+      icon: <GitHub />,
+      external: true,
+    },
+    {
+      label: 'Résumé',
+      value: 'Download PDF',
+      href: about.resume,
+      icon: <Download />,
+      download: true,
+    },
+  ].filter(Boolean)
 
   return (
-    <section
-      id='contact'
-      style={{
-        padding: '70px 25px',
-        textAlign: 'center',
-        
-        margin: '60px auto',
-        maxWidth: '850px',
-        color: '#eee',
-      }}
-    >
-      {/* Heading */}
-      <h2
-        style={{
-          fontSize: '2.6rem',
-          fontWeight: '700',
-          marginBottom: '12px',
-          color: '#fff',
-          animation: 'fadeSlideDown 1.2s ease forwards',
-        }}
-      >
-        Get in touch
-      </h2>
+    <section id='contact' className='section'>
+      <div className='container'>
+        <div className='contact reveal'>
+          <div className='contact__glow' aria-hidden />
+          <p className='eyebrow'>
+            <span>05</span> — Contact
+          </p>
+          <h2 className='contact__title'>
+            Have a role or a product in mind?{' '}
+            <span className='serif accent'>Let&apos;s talk.</span>
+          </h2>
+          <p className='contact__sub'>
+            I&apos;m always open to new opportunities and collaborations. The
+            fastest way to reach me is email.
+          </p>
 
-      {/* Subheading line */}
-      <p
-        style={{
-          fontSize: '1.1rem',
-          color: '#ccc',
-          marginBottom: '45px',
-          lineHeight: '1.6',
-          maxWidth: '600px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          animation: 'fadeIn 2s ease forwards',
-        }}
-      >
-        I’m always open to discussing new opportunities, collaborations, or just
-        a chat. Let’s connect.
-      </p>
+          <div className='contact__email'>
+            <a href={`mailto:${contact.email}`} className='btn btn--primary contact__mailto'>
+              {contact.email} <ArrowUpRight />
+            </a>
+            <button type='button' className='btn btn--ghost' onClick={copyEmail} aria-live='polite'>
+              {copied ? <Check /> : <Copy />}
+              {copied ? 'Copied!' : 'Copy email'}
+            </button>
+          </div>
 
-      {/* Direct contact buttons */}
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          gap: '18px',
-          marginBottom: '55px',
-        }}
-      >
-        <a
-          href={`mailto:${contact.email}`}
-          className='btn btn--outline'
-          style={{
-            padding: '12px 30px',
-            borderRadius: '10px',
-            fontWeight: '500',
-            fontSize: '1rem',
-            letterSpacing: '0.5px',
-            background: '#2c3e50',
-            color: '#fff',
-            animation: 'pulse 2s infinite',
-          }}
-        >
-          {contact.email}
-        </a>
-
-        {contact.call && (
-          <a
-            href={`tel:${contact.call.replace(/[^\d+]/g, '')}`}
-            className='btn btn--outline'
-            style={{
-              padding: '12px 30px',
-              borderRadius: '10px',
-              fontWeight: '500',
-              fontSize: '1rem',
-              letterSpacing: '0.5px',
-              background: '#2c3e50',
-              color: '#fff',
-              animation: 'pulse 2s infinite',
-            }}
-          >
-            {contact.call}
-          </a>
-        )}
+          <ul className='contact__links'>
+            {links.map((l) => (
+              <li key={l.label}>
+                <a
+                  href={l.href}
+                  className='clink'
+                  {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  {...(l.download ? { download: true } : {})}
+                >
+                  <span className='clink__icon'>{l.icon}</span>
+                  <span>
+                    <span className='clink__label'>{l.label}</span>
+                    <span className='clink__value'>{l.value}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-
-      {/* Social links */}
-      <h3
-        style={{
-          fontSize: '1.3rem',
-          fontWeight: '500',
-          marginBottom: '25px',
-          color: '#ddd',
-          animation: 'fadeSlideUp 1.5s ease forwards',
-        }}
-      >
-        Find me online
-      </h3>
-
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '35px',
-        }}
-      >
-        {social?.github && (
-          <a
-            href={social.github}
-            aria-label='github'
-            style={{
-              color: '#fff',
-              fontSize: '2.3rem',
-              animation: 'float 3s ease-in-out infinite',
-            }}
-          >
-            <GitHubIcon fontSize='inherit' />
-          </a>
-        )}
-
-        {social?.linkedin && (
-          <a
-            href={social.linkedin}
-            aria-label='linkedin'
-            style={{
-              color: '#0a66c2',
-              fontSize: '2.3rem',
-              animation: 'float 3s ease-in-out infinite',
-              animationDelay: '0.5s',
-            }}
-          >
-            <LinkedInIcon fontSize='inherit' />
-          </a>
-        )}
-
-        {social?.instagram && (
-          <a
-            href={social.instagram}
-            aria-label='instagram'
-            style={{
-              color: '#e1306c',
-              fontSize: '2.3rem',
-              animation: 'float 3s ease-in-out infinite',
-              animationDelay: '1s',
-            }}
-          >
-            <InstagramIcon fontSize='inherit' />
-          </a>
-        )}
-      </div>
-
-      {/* Animations */}
-      <style>
-        {`
-          @keyframes fadeSlideDown {
-            from { opacity: 0; transform: translateY(-40px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0.7); }
-            50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(255,255,255,0.6); }
-            100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0.7); }
-          }
-          @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-          }
-        `}
-      </style>
     </section>
   )
 }
